@@ -15,13 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="dist_v1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Makefile">
-      <Filter>Source Files</Filter>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>
