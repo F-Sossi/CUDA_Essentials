@@ -1,20 +1,36 @@
-// dist_v1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include <math.h> //Include standard math library containing sqrt.
+#define N 64 // Specify a constant value for array length.
 
-#include <iostream>
+// A scaling function to convert integers 0,1,...,N-1
+// to evenly spaced floats ranging from 0 to 1.
+float scale(int i, int n)
+{
+  return ((float)i) / (n - 1);
+}
+
+// Compute the distance between 2 points on a line.
+float distance(float x1, float x2)
+{
+  return sqrt((x2 - x1)*(x2 - x1));
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+  // Create an array of N floats (initialized to 0.0).
+  // We will overwrite these values to store our results.
+  float out[N] = { 0.0f };
+
+  // Choose a reference value from which distances are measured.
+  const float ref = 0.5f;
+
+  /* for loop to scale the index to obtain coordinate value,
+   * compute the distance from the reference point,
+   * and store the result in the corresponding entry in out. */
+  for (int i = 0; i < N; ++i)
+  {
+    float x = scale(i, N);
+    out[i] = distance(x, ref);
+  }
+
+  return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
